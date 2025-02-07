@@ -44,6 +44,7 @@ class TaskServiceTest {
         when(authentication.getName()).thenReturn("test@example.com");
     }
 
+
     @Test
     void testCreateTask() {
         User mockUser = new User();
@@ -53,11 +54,13 @@ class TaskServiceTest {
         when(userRepository.findByEmail(anyString())).thenReturn(mockUser);
         when(taskRepository.save(any(Task.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        Task task = taskService.createTask("Test Task", "Test Description");
+        // ✅ Include the email parameter when calling createTask
+        Task task = taskService.createTask("Test Task", "Test Description", "test@example.com");
 
         assertNotNull(task);
         assertEquals("Test Task", task.getTitle());
         assertEquals("Test Description", task.getDescription());
         assertEquals(mockUser, task.getUser());
     }
+
 }

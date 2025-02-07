@@ -2,6 +2,8 @@ package com.example.my_app.model;
 
 import jakarta.persistence.*;
 
+import javax.management.relation.Role;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -18,6 +20,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+
+
     // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -30,4 +34,6 @@ public class User {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+
 }

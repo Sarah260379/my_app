@@ -33,11 +33,11 @@ build/
 .vscode/
 
 # Ignore environment files
-.env
-.env.example
+.env  # Keep .env ignored
+# .env.example should NOT be ignored (Removed from ignore list)
 
 # Ignore SQLite database files
-*.db
+*.db  # Prevent database files from being pushed
 
 # Ignore build and target folders
 /target
